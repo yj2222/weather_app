@@ -1,0 +1,26 @@
+
+
+.weather
+  .weather__top
+    %span
+      = icon 'fas', 'umbrella'
+      = icon 'fas', 'sun'
+      = icon 'fas', 'cloud'
+    %h1.weather__top--title Weather App
+    %span
+      = icon 'fas', 'umbrella'
+      = icon 'fas', 'sun'
+      = icon 'fas', 'cloud'
+  .weather__main
+    = form_for "" do |f|
+      .weather__main__form
+        %span.weather__main__form--text Please Select→
+        = f.select :name, Weather.names, prompt: "-----", class: "weather__main__form--select"
+        .weather__main__form__button
+          = f.submit "search", class: 'weather__main__form__button--submit'
+
+  
+
+
+
+
