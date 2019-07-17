@@ -3,41 +3,183 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  width: 700px;
+  width: 600px;
   margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.icon-rain {
+  color: rgb(22, 180, 238);
+}
+.icon-sun {
+  color: rgb(240, 107, 35);
+}
+.icon-cloud {
+  color: rgb(187, 187, 187);
 }
 
 .weather__top {
   display: flex;
-  border: 1px solid black;
+  border: 1px solid rgb(220, 208, 208);
+  border-radius: 5px;
   text-align: center;
-
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .weather__top--title {
   padding: 0 10px;
   text-align: center;
+  display: inline;
+}
 
+.weather__main {
+  padding: 10px 0;
+  width: 100%;
 }
 
 .weather__main__form {
   display: flex;
+  justify-content: center;
+  text-align: center;
   select {
-    padding: 0 10px 0 20px;
-    width: 100px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0 20px;
+    width: 150px;
     height: 40px;
-    margin: 0 20px;
+    margin: 0 0 0 20px;
   }
 }
 
 .weather__main__form--text {
-  line-height: 60px;
+  line-height: 40px;
 }
 
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+.weather__main__form--select {
+  text-align: center;
 }
+
+.weather__main__button {
+}
+
+.weather__main__button--submit {
+  height: 40px;
+  width: 250px;
+  font-size: 20px;
+  display: block;
+  -webkit-appearance: none;
+  margin: 10px auto;
+  border-radius: 50px;
+  background: rgb(102, 197, 218);
+  color: white;
+  font-weight: bold;
+}
+
+.weather__result__head {
+  padding: 10px;
+  text-align: center;
+  // display: none;
+}
+
+.weather__result__head--time {
+  display: flex;
+  justify-content: center;
+
+  p {
+    padding-right: 10px;
+  }
+}
+
+.weather__result__head--text {
+  display: flex;
+  justify-content: center;
+  b {
+    padding: 0 10px;
+    color: #54b654;
+  }
+}
+
+@keyframes rotate_anime {
+  0% {
+      transform:rotate(0deg);/* アニメーションの進みが0%の時の状態 */
+  }
+  100% {
+      transform:rotate(360deg);/* アニメーションの進みが100%の時の状態 */
+  }
+}
+.icon-spinner {
+  animation: rotate_anime 1s infinite; /* rotate_animeを1秒かけて実行するのを繰り返す */
+  font-size: 100px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+
+.weather__result__main {
+  border: 1px solid rgb(220, 208, 208);
+  background: rgba(102, 197, 218, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+  // display: none;
+  position: relative;
+}
+
+.loading {
+  position: absolute;
+  top: 40%;
+  right: 43%;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 50px;
+  border-radius: 20px;
+  display: none;
+
+}
+
+.weather__result__main--time {
+  padding: 10px;
+  display: flex;
+  b {
+    padding: 0 10px;
+    color: rgb(84, 182, 84);
+  }
+}
+
+
+.weather--result {
+  display: flex;
+  padding: 0 20px 10px 120px;
+  p {
+    padding-right: 10px;
+    vertical-align: bottom;
+    line-height: 30px;
+  }
+  b {
+    padding-right: 10px;
+    line-height: 30px;
+  }
+  .icon-cloud, .icon-sun, .icon-rain {
+    font-size: 25px;
+  }
+}
+
+
+
+.temp--result {
+  display: flex;
+  padding: 0 0 10px 30px ;
+  line-height: 30px;
+  b {
+    padding: 0 5px 0 10px;
+  }
+}
+
+.weather__result__main__weather-temp {
+  display: flex;
+
+}
+
 
 

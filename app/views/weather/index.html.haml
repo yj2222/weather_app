@@ -1,23 +1,159 @@
-
-
 .weather
   .weather__top
     %span
-      = icon 'fas', 'umbrella'
-      = icon 'fas', 'sun'
-      = icon 'fas', 'cloud'
+      = icon 'fas', 'umbrella', class: "icon-rain"
+      = icon 'fas', 'sun', class: "icon-sun"
+      = icon 'fas', 'cloud', class: "icon-cloud"
     %h1.weather__top--title Weather App
     %span
-      = icon 'fas', 'umbrella'
-      = icon 'fas', 'sun'
-      = icon 'fas', 'cloud'
+      = icon 'fas', 'umbrella', class: "icon-rain"
+      = icon 'fas', 'sun', class: "icon-sun"
+      = icon 'fas', 'cloud', class: "icon-cloud"
   .weather__main
     = form_for "" do |f|
       .weather__main__form
-        %span.weather__main__form--text Please Select→
+        %span.weather__main__form--text Please Select →
         = f.select :name, Weather.names, prompt: "-----", class: "weather__main__form--select"
-        .weather__main__form__button
-          = f.submit "search", class: 'weather__main__form__button--submit'
+      .weather__main__button
+        = f.submit "search", class: 'weather__main__button--submit'
+        
+      .weather__result
+        // 現在時刻と地域を出力
+        -# .weather__result__head
+        -#   .weather__result__head--time
+        -#     %p Current time : 
+        -#     %b 2019/07/19 00:00:00
+        -#   .weather__result__head--text
+        -#     %p The weather in 
+        -#     %b Tokyo
+        -#     %p is ・・・
+
+        -# // ３時間ごとの予報を出力
+        -# .weather__result__main
+
+        -#   .weather__result__main--time
+        -#     %p 【 Forecast after 
+        -#     %b 3
+        -#     %p hours 】
+        -#   .weather__result__main__weather-temp
+        -#     .weather--result
+        -#       %p Weather :
+        -#       %b sun
+        -#       = icon 'fas', 'sun', class: "icon-sun"
+        -#     .temp--result
+        -#       %p Temperature : 
+        -#       %b 17
+        -#       %p °c
+        -#   .weather__result__main--time
+        -#     %p 【 Forecast after 
+        -#     %b 3
+        -#     %p hours 】
+        -#   .weather__result__main__weather-temp
+        -#     .weather--result
+        -#       %p Weather :
+        -#       %b sun
+        -#       = icon 'fas', 'sun', class: "icon-sun"
+        -#     .temp--result
+        -#       %p Temperature : 
+        -#       %b 17
+        -#       %p °c
+        -#   .weather__result__main--time
+        -#     %p 【 Forecast after 
+        -#     %b 3
+        -#     %p hours 】
+        -#   .weather__result__main__weather-temp
+        -#     .weather--result
+        -#       %p Weather :
+        -#       %b sun
+        -#       = icon 'fas', 'sun', class: "icon-sun"
+        -#     .temp--result
+        -#       %p Temperature : 
+        -#       %b 17
+        -#       %p °c
+        -#   .weather__result__main--time
+        -#     %p 【 Forecast after 
+        -#     %b 3
+        -#     %p hours 】
+        -#   .weather__result__main__weather-temp
+        -#     .weather--result
+        -#       %p Weather :
+        -#       %b sun
+        -#       = icon 'fas', 'sun', class: "icon-sun"
+        -#     .temp--result
+        -#       %p Temperature : 
+        -#       %b 17
+        -#       %p °c
+        -#   .weather__result__main--time
+        -#     %p 【 Forecast after 
+        -#     %b 3
+        -#     %p hours 】
+        -#   .weather__result__main__weather-temp
+        -#     .weather--result
+        -#       %p Weather :
+        -#       %b sun
+        -#       = icon 'fas', 'sun', class: "icon-sun"
+        -#     .temp--result
+        -#       %p Temperature : 
+        -#       %b 17
+        -#       %p °c
+        -#   .weather__result__main--time
+        -#     %p 【 Forecast after 
+        -#     %b 3
+        -#     %p hours 】
+        -#   .weather__result__main__weather-temp
+        -#     .weather--result
+        -#       %p Weather :
+        -#       %b sun
+        -#       = icon 'fas', 'sun', class: "icon-sun"
+        -#     .temp--result
+        -#       %p Temperature : 
+        -#       %b 17
+        -#       %p °c
+        -#   .weather__result__main--time
+        -#     %p 【 Forecast after 
+        -#     %b 3
+        -#     %p hours 】
+        -#   .weather__result__main__weather-temp
+        -#     .weather--result
+        -#       %p Weather :
+        -#       %b sun
+        -#       = icon 'fas', 'sun', class: "icon-sun"
+        -#     .temp--result
+        -#       %p Temperature : 
+        -#       %b 17
+        -#       %p °c
+        -#   .weather__result__main--time
+        -#     %p 【 Forecast after 
+        -#     %b 3
+        -#     %p hours 】
+        -#   .weather__result__main__weather-temp
+        -#     .weather--result
+        -#       %p Weather :
+        -#       %b sun
+        -#       = icon 'fas', 'sun', class: "icon-sun"
+        -#     .temp--result
+        -#       %p Temperature : 
+        -#       %b 17
+        -#       %p °c
+        -#   .weather__result__main--time
+        -#     %p 【 Forecast after 
+        -#     %b 3
+        -#     %p hours 】
+        -#   .weather__result__main__weather-temp
+        -#     .weather--result
+        -#       %p Weather :
+        -#       %b sun
+        -#       = icon 'fas', 'sun', class: "icon-sun"
+        -#     .temp--result
+        -#       %p Temperature : 
+        -#       %b 17
+        -#       %p °c
+        -# .loading
+        -#   = icon 'fas', 'spinner', class: "icon-spinner"
+        
+        
+
+          
 
   
 

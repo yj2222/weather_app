@@ -15,3 +15,24 @@ https://www.flatflag.nir87.com/for-2-1121
 
 font-awesome-sass
 https://qiita.com/paudorino/items/d54348f6d48eefcee6c7
+
+submitボタンにCSSを適用
+http://makenote.hatenablog.com/entry/2015/10/26/201821
+
+RailsでjQueryを使えるようにする方法
+https://qiita.com/ngron/items/95846bd630a723e00038
+↑これ間違え
+https://qiita.com/kumagi/items/289ccadf344f32613304
+↑これも？
+このとおりやると以下のエラー
+https://gyazo.com/183b6c9f1cfef863377b39fb9461e9be
+エラー通り以下のように、application.jsを設定したら正常に動きました。
+//= require jquery
+//= require rails-ujs
+//= require activestorage
+//= require turbolinks
+//= require_tree .
+
+Jqueryでsubmit一時停止
+https://www.buildinsider.net/web/jqueryref/022
+
