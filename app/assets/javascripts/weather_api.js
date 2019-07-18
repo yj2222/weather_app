@@ -14,51 +14,65 @@ $(document).on('turbolinks:load', function () {
     $.ajax(requestUrl)
       .done(function(data) {
         if (data.cod == 200) {
-          var date = Date(data.list[0].dt)
 
           var result_top = $('.weather__result')
+          var date = Date(data.list[0].dt)
+
           build_result_top = build_result_top(date, cityName)
 
-          function build_weather_list(i,time,weather,temp) {
-          var html = 
-            `<p style="padding-top: 5px;">【forecast after <b>${time}</b> hours】</p>
-            <p style="padding-left: 50px;">
-              Weather : <b id="result-weather-1"> ${weather} </b> <i class="result-icon-${i}" style="font-size: 20px;"></i>.<br>
-              Temperature : <b id="result-temp-1" style="font-size: 16px;"> ${temp} </b> °C. <br>
-            </p>`
-          return html;
-        }
+          function build_result_top(date, cityName) {
+            var html = 
+              `<div class="weather__result__head">
+                <div class="weather__result__head--time">
+                  <p>Current time :<b>${date}</b></p>
+                </div>
+                <div class="weather__result__head--text">
+                  <p>The weather in<b>${cityName}</b>is ・・・</p>
+                </div>
+              </div>`
+            return html;
+          }
           result_top.append(build_result_top)
+          var result_main = $('.weather__result__main')
+          result_main.before($(".weather__result__head"));
+
+          var time = 0
+          for (var i = 0; i<9; i++) {
+          var temp = Math.round(data.list[i].main.temp - ABS_TMP_DIFF)
+          var weather = data.list[i].weather[0].main
+
+          // アイコン追加
+          if (data.list[i].weather[0].main == "Clear") {
+            var resultIcon = 'fa-sun icon-sun'
+          }
+          if (data.list[i].weather[0].main == "Clouds") {
+            var resultIcon = 'fa-cloud icon-cloud'
+          }
+          if (data.list[i].weather[0].main == "Rain") {
+            var resultIcon = 'fa-umbrella icon-rain'
+          }
+
+          build_result_main = build_result_main(time, temp, weather, resultIcon)
+
+          function build_result_main(time, temp, weather, resultIcon) {
+            var html = 
+              `<div class="weather__result__main--time">
+                <p>【 Forecast after<b>${time}</b>hours 】</p>
+              </div>
+              <div class="weather__result__main__weather-temp">
+                <div class="weather--result">
+                  <p>Weather :<b>${weather}</b><i class="fas ${resultIcon}"></i></p>
+                </div>
+                <div class="temp--result">
+                  <p>Temperature :<b>${temp}</b>°c</p>
+                </div>
+              </div>`
+            return html;
+          }
+          result_main.append(build_result_main)
+          time += 3
+          }
           
-          $("#result-city-name").text(cityName)
-          $("#result-datetime").text(date)
-
-          // var time = 0
-          // for (var i = 0; i<9; i++) {
-          //   var temp = Math.round(data.list[i].main.temp - ABS_TMP_DIFF)
-          //   var weather = data.list[i].weather[0].main
-          //   // var date = Date(data.list[i].dt)
-          //   // var date = data.list[i].dt_txt
-          //   //取得データ結果表示の呼び出し
-          //   var result = build_weather_list(i,time,weather,temp)
-          //   formResult.append(result)
-          //   time += 3
-          //   // アイコン追加
-          //   var resultIcon = '.result-icon-' + i
-          //   if (data.list[i].weather[0].main == "Rain") {
-          //     $(resultIcon).addClass("fa")
-          //     $(resultIcon).addClass("fa-umbrella")
-          //   }
-          //   if (data.list[i].weather[0].main == "Clouds") {
-          //     $(resultIcon).addClass("fa")
-          //     $(resultIcon).addClass("fa-cloud")
-          //   }
-          //   if (data.list[i].weather[0].main == "Clear") {
-          //     $(resultIcon).addClass("fa")
-          //     $(resultIcon).addClass("fa-sun-o")
-          //   }
-          // }
-
         } else {
           // formSpinner.css('display', 'none');
           // formError.css('display', 'block');

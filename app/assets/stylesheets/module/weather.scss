@@ -86,17 +86,15 @@
 }
 
 .weather__result__head--time {
-  display: flex;
-  justify-content: center;
-
-  p {
-    padding-right: 10px;
+  padding-top: 10px;
+  b {
+    padding-left: 10px;
   }
 }
 
 .weather__result__head--text {
-  display: flex;
-  justify-content: center;
+  padding-top: 10px;
+
   b {
     padding: 0 10px;
     color: #54b654;
@@ -150,14 +148,14 @@
 
 .weather--result {
   display: flex;
-  padding: 0 20px 10px 120px;
+  padding: 0 0 10px 100px;
   p {
     padding-right: 10px;
     vertical-align: bottom;
     line-height: 30px;
   }
   b {
-    padding-right: 10px;
+    padding: 10px;
     line-height: 30px;
   }
   .icon-cloud, .icon-sun, .icon-rain {
@@ -169,7 +167,7 @@
 
 .temp--result {
   display: flex;
-  padding: 0 0 10px 30px ;
+  padding: 0 100px 10px 0 ;
   line-height: 30px;
   b {
     padding: 0 5px 0 10px;
@@ -178,7 +176,7 @@
 
 .weather__result__main__weather-temp {
   display: flex;
-
+  justify-content: space-between;
 }
 
 
