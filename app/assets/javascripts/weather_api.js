@@ -1,25 +1,38 @@
+// APIキー
 const API_KEY = '95a0ca26d002f09d2a110a24c49433e1';
+// ケルビン変換用
 const ABS_TMP_DIFF = 273;
 
-
 $(document).on('turbolinks:load', function () {
-  $('.weather').submit(function(e) {
-    e.preventDefault();
+  // セレクトのname属性指定
+  var select = $('select[name="name"]')
+  // 結果表示欄の、初期値をセット
+  var defaultHTML = document.getElementById('result').innerHTML;
+  // セレクトが変更されたら、submitボタンを有効かする
+  select.change(function(){
     var submit = $('.weather__main__button--submit')
     submit.prop('disabled', false);
-
+  });
+  // submitボタンが押されたら、処理を止め以降の処理を実行する。
+  $('.weather').submit(function(e) {
+    e.preventDefault();
+    // 結果表示欄を、初期値に戻す。
+    document.getElementById('result').innerHTML = defaultHTML;
+    // submitボタンの有効化。
+    var submitButton = $('.weather__main__button--submit')
+    submitButton.prop('disabled', false);
+    // APIにselectのvalueを送り検索をかける
     var cityName = $(this).find('#name').prop('value');
     var requestUrl = 'http://api.openweathermap.org/data/2.5/forecast?APPID=';
         requestUrl += API_KEY + '&q=' + cityName;
+    // ajax通信を行う
     $.ajax(requestUrl)
       .done(function(data) {
         if (data.cod == 200) {
-
           var result_top = $('.weather__result')
           var date = Date(data.list[0].dt)
-
+          // 結果表示用のビューを生成
           build_result_top = build_result_top(date, cityName)
-
           function build_result_top(date, cityName) {
             var html = 
               `<div class="weather__result__head">
@@ -33,6 +46,7 @@ $(document).on('turbolinks:load', function () {
             return html;
           }
           result_top.append(build_result_top)
+          // 
           var result_main = $('.weather__result__main')
           result_main.before($(".weather__result__head"));
 
