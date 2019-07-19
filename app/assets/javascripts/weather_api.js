@@ -46,16 +46,14 @@ $(document).on('turbolinks:load', function () {
             return html;
           }
           result_top.append(build_result_top)
-          // 
+          // 表示の順番を入れ替え
           var result_main = $('.weather__result__main')
           result_main.before($(".weather__result__head"));
-
+          // 天気の結果に応じてアイコンを追加
           var time = 0
           for (var i = 0; i<9; i++) {
           var temp = Math.round(data.list[i].main.temp - ABS_TMP_DIFF)
           var weather = data.list[i].weather[0].main
-
-          // アイコン追加
           if (data.list[i].weather[0].main == "Clear") {
             var resultIcon = 'fa-sun icon-sun'
           }
@@ -65,9 +63,8 @@ $(document).on('turbolinks:load', function () {
           if (data.list[i].weather[0].main == "Rain") {
             var resultIcon = 'fa-umbrella icon-rain'
           }
-
+          // 予報のビューを生成
           build_result_main = build_result_main(time, temp, weather, resultIcon)
-
           function build_result_main(time, temp, weather, resultIcon) {
             var html = 
               `<div class="weather__result__main--time">
@@ -86,7 +83,6 @@ $(document).on('turbolinks:load', function () {
           result_main.append(build_result_main)
           time += 3
           }
-          
         } else {
           // formSpinner.css('display', 'none');
           // formError.css('display', 'block');
@@ -97,6 +93,5 @@ $(document).on('turbolinks:load', function () {
         // formSpinner.css('display', 'none');
         // alert('Something wrong occurred.');
       });
-
-  });
+    });
 });
