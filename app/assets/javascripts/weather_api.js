@@ -23,7 +23,7 @@ $(document).on('turbolinks:load', function () {
     submitButton.prop('disabled', false);
     // APIにselectのvalueを送り検索をかける
     var cityName = $(this).find('#name').prop('value');
-    var requestUrl = 'http://api.openweathermap.org/data/2.5/forecast?APPID=';
+    var requestUrl = 'https://api.openweathermap.org/data/2.5/forecast?APPID=';
         requestUrl += API_KEY + '&q=' + cityName;
     // ajax通信を行う
     $.ajax(requestUrl)
