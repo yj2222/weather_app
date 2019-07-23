@@ -17,7 +17,7 @@ You can check the weather forecast for one day.
 1) Please select area. 
 2) Push the botton of "search".
 ex)↓
-<img width="750" alt="README_discription_1" src="https://user-images.githubusercontent.com/50900728/61713826-6dc67b00-ad94-11e9-87e2-72ffd9d93e5e.gif">
+<img width="400" alt="README_discription_1" src="https://user-images.githubusercontent.com/50900728/61713826-6dc67b00-ad94-11e9-87e2-72ffd9d93e5e.gif">
 
 or↓
 
