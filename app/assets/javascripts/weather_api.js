@@ -29,60 +29,69 @@ $(document).on('turbolinks:load', function () {
     $.ajax(requestUrl)
       .done(function(data) {
         if (data.cod == 200) {
-          var result_top = $('.weather__result')
-          var date = Date(data.list[0].dt)
-          // 結果表示用のビューを生成
-          build_result_top = build_result_top(date, cityName)
-          function build_result_top(date, cityName) {
-            var html = 
-              `<div class="weather__result__head">
-                <div class="weather__result__head--time">
-                  <p>Current time :<b>${date}</b></p>
-                </div>
-                <div class="weather__result__head--text">
-                  <p>The weather in<b>${cityName}</b>is ・・・</p>
-                </div>
-              </div>`
-            return html;
-          }
-          result_top.append(build_result_top)
-          // 表示の順番を入れ替え
-          var result_main = $('.weather__result__main')
-          result_main.before($(".weather__result__head"));
-          // 天気の結果に応じてアイコンを追加
-          var time = 0
-          for (var i = 0; i<9; i++) {
-          var temp = Math.round(data.list[i].main.temp - ABS_TMP_DIFF)
-          var weather = data.list[i].weather[0].main
-          if (data.list[i].weather[0].main == "Clear") {
-            var resultIcon = 'fa-sun icon-sun'
-          }
-          if (data.list[i].weather[0].main == "Clouds") {
-            var resultIcon = 'fa-cloud icon-cloud'
-          }
-          if (data.list[i].weather[0].main == "Rain") {
-            var resultIcon = 'fa-umbrella icon-rain'
-          }
-          // 予報のビューを生成
-          build_result_main = build_result_main(time, temp, weather, resultIcon)
-          function build_result_main(time, temp, weather, resultIcon) {
-            var html = 
-              `<div class="weather__result__main--time">
-                <p>【 Forecast after<b>${time}</b>hours 】</p>
-              </div>
-              <div class="weather__result__main__weather-temp">
-                <div class="weather--result">
-                  <p>Weather :<b>${weather}</b><i class="fas ${resultIcon}"></i></p>
-                </div>
-                <div class="temp--result">
-                  <p>Temperature :<b>${temp}</b>°c</p>
-                </div>
-              </div>`
-            return html;
-          }
-          result_main.append(build_result_main)
-          time += 3
-          }
+          $('.loading').css('display','inline-block');
+
+            setTimeout(function(){
+              $('.loading').css('display','none');
+              var result_top = $('.weather__result')
+              var date = Date(data.list[0].dt)
+              // 結果表示用のビューを生成
+              build_result_top = build_result_top(date, cityName)
+              function build_result_top(date, cityName) {
+                var html = 
+                  `<div class="weather__result__head">
+                    <div class="weather__result__head--time">
+                      <p>Current time :<b>${date}</b></p>
+                    </div>
+                    <div class="weather__result__head--text">
+                      <p>The weather in<b>${cityName}</b>is ・・・</p>
+                    </div>
+                  </div>`
+                return html;
+              }
+              result_top.append(build_result_top)
+              // 表示の順番を入れ替え
+              var result_main = $('.weather__result__main')
+              result_main.before($(".weather__result__head"));
+              // 天気の結果に応じてアイコンを追加
+              var time = 0
+              for (var i = 0; i<9; i++) {
+              var temp = Math.round(data.list[i].main.temp - ABS_TMP_DIFF)
+              var weather = data.list[i].weather[0].main
+              if (data.list[i].weather[0].main == "Clear") {
+                var resultIcon = 'fa-sun icon-sun'
+              }
+              if (data.list[i].weather[0].main == "Clouds") {
+                var resultIcon = 'fa-cloud icon-cloud'
+              }
+              if (data.list[i].weather[0].main == "Rain") {
+                var resultIcon = 'fa-umbrella icon-rain'
+              }
+              // 予報のビューを生成
+              build_result_main = build_result_main(time, temp, weather, resultIcon)
+              function build_result_main(time, temp, weather, resultIcon) {
+                var html = 
+                  `<div class="weather__result__main--time">
+                    <p>【 Forecast after<b>${time}</b>hours 】</p>
+                  </div>
+                  <div class="weather__result__main__weather-temp">
+                    <div class="weather--result">
+                      <p>Weather :<b>${weather}</b><i class="fas ${resultIcon}"></i></p>
+                    </div>
+                    <div class="temp--result">
+                      <p>Temperature :<b>${temp}</b>°c</p>
+                    </div>
+                  </div>`
+                return html;
+              }
+              result_main.append(build_result_main)
+              time += 3
+              }
+            },2000);
+
+
+          
+          
         } else {
           // formSpinner.css('display', 'none');
           // formError.css('display', 'block');

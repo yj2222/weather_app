@@ -67,7 +67,7 @@ gem 'pry-rails'
 gem "jquery-rails"
 
 group :development, :test do
-  gem 'sqlite3' #do ~ end内部に追加。他のgemは残してください。
+  gem 'sqlite3'
 end
 
 group :production do

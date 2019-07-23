@@ -1,4 +1,6 @@
 .weather
+  .content
+    = link_to "How To ?", "#",  class: "js-modal-open"
   .weather__top
     %span
       = icon 'fas', 'umbrella', class: "icon-rain"
@@ -47,9 +49,19 @@
         .loading
           = icon 'fas', 'spinner', class: "icon-spinner"
         
-        
+.modal.js-modal
+  .modal__bg.js-modal-close
+  .modal__content
+    %p 1) Please select area. 
+    %p 2) Push the botton of "search".
+    = image_tag "modal/howto_image1.png", class: "image1"
+    %p 3) Then, the weather forecast for the "3 hourly" is displayed.
+    %p.last-text Please check the following example!
+    = image_tag "modal/howto_image2.gif", class: "image2"
+    = link_to "Close", "#",  class: "js-modal-close"
 
-          
+
+
 
   
 

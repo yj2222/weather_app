@@ -1,24 +1,25 @@
-# README
+Weather_app
+====
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Overview
 
-Things you may want to cover:
+## URL
 
-* Ruby version
+https://immense-scrubland-75119.herokuapp.com/
 
-* System dependencies
+## Description
 
-* Configuration
+This is a weather forecast app.
+You can check the weather forecast for one day.
 
-* Database creation
+## Usage
 
-* Database initialization
+1) Please select area. 
+2) Push the botton of "search".
+ex)↓
+<img width="750" alt="README_discription_1" src="https://user-images.githubusercontent.com/50900728/61713826-6dc67b00-ad94-11e9-87e2-72ffd9d93e5e.gif">
 
-* How to run the test suite
+or↓
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Please click the linked "How To ?".
+<img width="750" alt="README_discription_1" src="https://user-images.githubusercontent.com/50900728/61713591-ed077f00-ad93-11e9-906c-ba5d879aa6d1.png">
